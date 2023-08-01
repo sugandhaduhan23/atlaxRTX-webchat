@@ -1,0 +1,6 @@
+{
+    "name": "Alice",
+    "icon": "/assets/images/robot.png",
+    "background": "linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255))",
+    "fontSize":""
+}

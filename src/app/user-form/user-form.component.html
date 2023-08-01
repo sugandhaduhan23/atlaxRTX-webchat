@@ -1,0 +1,49 @@
+<!-- User Details Form -->
+<form [formGroup]="userDetails" (ngSubmit)="sendUserDetails()" role="form">
+
+    <!-- First Name Field -->
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input type="text" matInput formControlName="firstname" placeholder="Enter name" aria-label="First Name">
+      <mat-error *ngIf="f['firstname'].hasError('required')">
+        First name is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Last Name Field -->
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input type="text" matInput formControlName="lastname" placeholder="Enter last name" aria-label="Last Name">
+      <mat-error *ngIf="f['lastname'].hasError('required')">
+        Last name is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Email Field -->
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email" placeholder="Enter email" aria-label="Email">
+      <mat-error *ngIf="f['email'].hasError('email') && !f['email'].hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="f['email'].hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Telephone Field -->
+    <mat-form-field>
+      <mat-label>Telephone</mat-label>
+      <input type="tel" matInput formControlName="phoneNo" placeholder="555-555-1234" aria-label="Telephone">
+      <mat-error *ngIf="f['phoneNo'].hasError('required')">
+        Phone No is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button mat-fab type="submit" [disabled]="userDetails.invalid" [class.disabled]="userDetails.invalid"
+      aria-label="Submit">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+
+</form>

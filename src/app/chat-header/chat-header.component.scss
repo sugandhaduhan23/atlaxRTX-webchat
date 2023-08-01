@@ -1,0 +1,99 @@
+$background-color: linear-gradient(
+  135deg,
+  rgb(42, 39, 218) 0%,
+  rgb(0, 204, 255) 100%
+);
+$text-color: #ffffff;
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.chat-header {
+  @include flex;
+  flex-wrap: wrap;
+  color: $text-color;
+  background: $background-color;
+  padding: 20px 20px 0;
+
+  .avatar {
+    margin: 0px 15px 5px 0px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 2px;
+    margin-bottom: 0px;
+    align-self: center;
+  }
+
+  .emoji {
+    align-self: center;
+
+    img {
+      height: 27px;
+      width: 27px;
+    }
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .chat-close {
+    @include flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .mat-icon-button {
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+    }
+  }
+
+  mat-icon {
+    color: $text-color;
+  }
+
+  .online-message {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    background-image: linear-gradient(
+      135deg,
+      rgba(42, 39, 218, 0.72) 0%,
+      rgba(0, 204, 255, 0.72) 100%
+    );
+    margin: 4px -28px 0px;
+    color: $text-color;
+    width: 100%;
+    padding: 14px 28px;
+
+    div:nth-child(1) {
+      width: 8px;
+      height: 8px;
+      background: rgb(88, 183, 67);
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: calc(100% + 10px);
+      bottom: -8px;
+      left: -5px;
+      border-image-source: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNzIgMTUiPgogIDxwYXRoIGQ9Ik0zNDkuOCAxLjRDMzM0LjUuNCAzMTguNSAwIDMwMiAwaC0yLjVjLTkuMSAwLTE4LjQuMS0yNy44LjQtMzQuNSAxLTY4LjMgMy0xMDIuMyA0LjctMTQgLjUtMjggMS4yLTQxLjUgMS42Qzg0IDcuNyA0MS42IDUuMyAwIDIuMnY4LjRjNDEuNiAzIDg0IDUuMyAxMjguMiA0LjEgMTMuNS0uNCAyNy41LTEuMSA0MS41LTEuNiAzMy45LTEuNyA2Ny44LTMuNiAxMDIuMy00LjcgOS40LS4zIDE4LjctLjQgMjcuOC0uNGgyLjVjMTYuNSAwIDMyLjQuNCA0Ny44IDEuNCA4LjQuMyAxNS42LjcgMjIgMS4yVjIuMmMtNi41LS41LTEzLjgtLjUtMjIuMy0uOHoiIGZpbGw9IiNmZmYiLz4KPC9zdmc+Cg==);
+      border-image-slice: 0 0 100%;
+      border-image-repeat: stretch;
+      border-width: 0px 0px 15px;
+      border-bottom-style: solid;
+    }
+  }
+}

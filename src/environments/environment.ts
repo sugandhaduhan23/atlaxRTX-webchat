@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ACTION: {
+    CANCEL: 'cancel',
+    CLOSE: 'close',
+    ERASE: 'erase',
+  },
+  MESSAGE: {
+    CANCEL:
+      'Oh, it looks like you cancelled out of your request to connect with us.',
+    SUBMIT: 'Thank you, for providing your contact information.',
+  },
 };
 
 /*

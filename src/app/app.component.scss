@@ -1,0 +1,51 @@
+/* CSS for Chat Opener */
+.chat-opener {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  box-shadow: 0 4px 24px rgba(0, 77, 255, 0.5);
+  text-align: center;
+  cursor: pointer;
+
+  img {
+    width: 50%;
+    height: 50%;
+  }
+
+  div {
+    color: white;
+    font-size: 12px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    background: white;
+    background-image: url("/assets/images/chat.png");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0);
+    opacity: 0.6;
+  }
+
+  &:hover {
+    &::after {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

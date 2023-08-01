@@ -1,0 +1,15 @@
+{
+    "previousConversation":[],
+    "message": "Good Evening! Thank you for your interest in SFBU, a top-ranked school nestled in San Francisco Bay Area. \n\nI'm Alice, your digital assistant. How can I help you today.",
+    "type": "text",
+    "userTyped": false,
+    "isLoading": true,
+    "suggestedReplies": [
+        "MBA",
+        "MSCS",
+        "MSEE",
+        "PhD",
+        "Return to Main Menu"
+    ]
+}
+

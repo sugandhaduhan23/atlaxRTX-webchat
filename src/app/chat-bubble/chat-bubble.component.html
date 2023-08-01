@@ -1,0 +1,104 @@
+<!-- Display the "Establishing secure connection..." message when connection is not established -->
+<div *ngIf="!connectionEstablished" class="connection">
+    Establishing secure connection...
+</div>
+
+<!-- Display the chat messages when the connection is established -->
+<ng-container *ngIf="connectionEstablished">
+    <ng-container *ngFor="let msg of messages; let i = index" [ngSwitch]="msg.type">
+
+        <!-- Each message is wrapped in a container with flyUp animation and dynamic classes -->
+        <div class="message-wrapper" @flyUp [class.message-float-right]="msg.userTyped"
+            [ngClass]="{ 'full-Width': (msg.type=='image' || msg.type=='video') }">
+
+            <!-- Handle text and form messages -->
+            <ng-container *ngSwitchCase="'text'">
+                <ng-container *ngTemplateOutlet="chatbotResponses; context:{msg}"></ng-container>
+            </ng-container>
+            
+            <ng-container *ngSwitchCase="'form'">
+                <ng-container *ngTemplateOutlet="chatbotResponses; context:{msg}"></ng-container>
+            </ng-container>
+
+            <!-- Display image message if the message type is 'image' and it's not loading -->
+            <div *ngSwitchCase="'image'" class="image-message">
+                <img [src]="msg.imageUrl" />
+            </div>
+
+            <!-- Handle video messages -->
+            <ng-container *ngSwitchCase="'video'">
+                <ng-container *ngTemplateOutlet="videoTemplate; context:{msg: msg, index: i}"></ng-container>
+            </ng-container>
+
+        </div>
+
+        <!-- Display user form if the showForm flag is true -->
+        <div class="form message-wrapper message-float-right" *ngIf="msg.showForm" @flyUp>
+            <button mat-icon-button (click)="closeForm('cancel',msg)">
+                <mat-icon>close</mat-icon>
+            </button>
+            <app-user-form (closeForm)="closeForm('close', msg)"></app-user-form>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- Display suggested replies for the current message if they exist -->
+        <div *ngIf="msg.suggestedReplies.length" class="message-wrapper message-float-right" @flyUp>
+            <div class="replies">
+                <div *ngFor="let option of msg.suggestedReplies" (click)="sendMessage(msg, option)">
+                    {{option}}
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    </ng-container>
+</ng-container>
+
+<!-- Template for chatbot responses -->
+<ng-template #chatbotResponses let-msg="msg">
+    <!-- Display the chatbot's avatar and name if the message is not user-typed -->
+    <ng-container *ngIf="!msg.userTyped">
+        <div appConfiguration [background]="configuration.background" class="icon">
+            <img [src]="configuration.icon" height="70%" width="70%" />
+        </div>
+        <div class="chatbot_name"><span>{{configuration.name}} | {{currentTime| date :'shortTime'}}</span>
+        </div>
+    </ng-container>
+
+    <!-- Display the message bubble or loading dots based on message state -->
+    <div class="message-bubble" [class.user-msg]="msg.userTyped">
+        <div class="container" *ngIf="msg.isLoading">
+            <!-- Display loading dots animation while the message is loading -->
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div *ngIf="!msg.isLoading" @expand>
+            <!-- Display the message content when it's not loading -->
+            {{msg.message}}
+        </div>
+    </div>
+</ng-template>
+
+<!-- Template for video messages -->
+<ng-template #videoTemplate let-msg="msg" let-i="index">
+    <div class="video-message" [class.dark-bg]="msg.loadVideo">
+        <div *ngIf="!msg.loadVideo" class="thumbnail">
+            <!-- Display video thumbnail and play button if the video is not loaded -->
+            <img [src]="msg.thumbNailUrl">
+            <img src="assets/images/play-button.png" (click)="toggleVideo(i)">
+        </div>
+        <div class="video-placeholder" *ngIf="msg.loadVideo">
+            <!-- Display video placeholder with close button and iframe if the video is loaded -->
+            <div>
+                <button mat-icon-button (click)="toggleVideo(i)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+            <div>
+                <iframe [src]="sanitizeUrl(msg.videoUrl)" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</ng-template>

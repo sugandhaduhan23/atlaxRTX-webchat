@@ -1,0 +1,102 @@
+$background-color: linear-gradient(
+  135deg,
+  rgb(42, 39, 218) 0%,
+  rgb(0, 204, 255) 100%
+);
+$text-color: #ffffff;
+
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.chat-widget {
+  @include flex;
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+  flex-direction: column;
+  height: calc(100% - 20px);
+  width: 430px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 18, 46, 0.16) 0px 8px 36px 0px;
+  overflow: hidden;
+
+  .conversation {
+    flex-grow: 1;
+    padding: 15px;
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .chat-input {
+    @include flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+
+    .chat-input-box {
+      @include flex;
+      min-height: 55px;
+      max-height: 80px;
+      padding: 5px 0;
+      width: 100%;
+      overflow: hidden;
+
+      button {
+        background: linear-gradient(
+          135deg,
+          rgb(42, 39, 218) 0%,
+          rgb(0, 204, 255) 100%
+        );
+        z-index: 10;
+        height: 35px;
+        width: 35px;
+        align-self: center;
+        box-shadow: unset;
+      }
+
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 14px;
+        align-self: center;
+      }
+
+      ::ng-deep .mat-fab .mat-button-wrapper {
+        padding: 0;
+      }
+    }
+  }
+
+  ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    float: left;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-clip: padding-box;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 568px) {
+    width: 100%;
+    right: 0;
+  }
+}

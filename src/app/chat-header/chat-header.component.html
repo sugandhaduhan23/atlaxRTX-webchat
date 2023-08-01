@@ -1,0 +1,39 @@
+<div class="chat-header">
+    <div class="avatar">
+        <!-- Display the avatar icon -->
+        <img [src]="configuration.icon" height="35" width="35">
+    </div>
+    <h2>
+        Hi! I am {{configuration.name}}
+    </h2>
+    <div class="emoji">
+        <!-- Display a waving hand emoji -->
+        <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/12.1.1/72x72/1f44b.png" alt="👋">
+    </div>
+    <div class="spacer"></div>
+    <div class="chat-close">
+        <div>
+            <!-- Display a menu with options -->
+            <button mat-icon-button matRipple [matMenuTriggerFor]="menu" aria-label="Menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <!-- Option to erase chat history -->
+                <button mat-menu-item (click)="closeChat('erase')">
+                    <mat-icon>delete</mat-icon>
+                    <span>End Conversation</span>
+                </button>
+            </mat-menu>
+        </div>
+        <div (click)="closeChat('close')">
+            <!-- Button to close the chat -->
+            <button mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="online-message">
+        <div></div>
+        <div>We are online!!!</div>
+    </div>
+</div>

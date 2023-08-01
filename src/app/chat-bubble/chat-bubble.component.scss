@@ -1,0 +1,212 @@
+// CSS for Establishing Secure Connection
+.connection {
+    padding: 20px;
+    font-size: 14px;
+    color: rgb(6, 19, 43);
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 3s steps(100, end) forwards;
+}
+    
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+// CSS for Loading Dots
+.container{
+    background: rgb(240, 242, 247);
+    border-radius: 1em;
+    margin-left: 15px;
+    padding: 10px 0px;
+    text-align: center;
+    display: flex
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    margin-right: 5px;
+    background: linear-gradient(135deg, rgb(42, 39, 218) 0%, rgb(0, 204, 255) 100%);
+}
+  
+.container .dot:nth-last-child(1) {
+    animation: fallingAnimation 1s 0.4s linear infinite;
+}
+
+.container .dot:nth-last-child(2) {
+    animation: fallingAnimation 1s 0.3s linear infinite;
+}
+
+.container .dot:nth-last-child(3) {
+    animation: fallingAnimation 1s 0.2s linear infinite;
+}
+
+.container .dot:nth-last-child(4) {
+    animation: fallingAnimation 1s 0.1s linear infinite;
+}
+  
+@keyframes fallingAnimation {
+    0% {
+      transform: translate(0,-15px);
+      opacity:0;
+    }
+    25%, 50%, 75% {
+      transform: translate(0,0);
+      opacity:1;
+    }
+    100% {
+      transform: translate(0,15px);
+      opacity:0;
+  
+    }
+}
+
+// CSS for chat-bubbles
+.message-wrapper{
+    max-width:80%;
+    margin-bottom: 10px;
+    float:left; 
+
+    .icon{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 30px;
+        border-radius: 50px;
+        float:left;
+        position: relative;
+        z-index: 10;
+    }
+
+    .chatbot_name{
+        text-align: center;
+        font-size: 12px;    
+    }
+
+    .message-bubble{
+        color: rgb(6, 19, 43);
+        background: rgb(240, 242, 247);
+        border-radius: 1.1em;
+        margin-left: 15px;
+        font-size: 14px;
+        line-height: 1.3em;
+        padding: 10px 20px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+
+    .text-light{
+        color: white;
+    }
+
+    .user-msg{
+        background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
+        box-shadow: 0 4px 8px -1px #a6a6a6;
+        color: white;
+    }
+
+    .image-message{
+        position: relative;
+        padding: 13px;
+        img{
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+        }
+    }
+
+    .video-message{
+        border-radius: 10px;
+        padding: 13px;
+        overflow: hidden;
+
+        .thumbnail{
+            position: relative;
+           
+            img:nth-child(1){
+                width: 100%;
+                height: 300px;
+                border-radius: 10px;    
+            }
+            
+            img:nth-child(2){
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 70px;
+                height: 70px;
+              }
+        }
+
+        .video-placeholder{
+            display: flex;
+            flex-direction: column;
+
+            div:nth-child(1){
+                color: white;
+                align-self: end;;
+            }
+
+            iframe{
+                width:100%;
+                height:300px
+            }
+        }
+    }
+
+    .dark-bg{
+        background-color: black;;
+    }
+
+    .replies{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: end;
+       
+        div{
+            background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
+            box-shadow: 0 4px 8px -1px #a6a6a6;
+            cursor: pointer;
+            padding: 10px;
+            color: white;
+            border-radius: 1rem;
+            margin: 3px;
+        }
+    }
+}
+
+.message-float-right{
+    float: right ;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.full-Width{
+    max-width: unset;
+    width: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid deepskyblue;
+    padding: 0px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px -1px #a6a6a6; 
+    max-width: 60%;
+    
+    button{
+        align-self: end;;
+    }
+}

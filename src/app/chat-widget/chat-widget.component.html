@@ -1,0 +1,24 @@
+<div class="chat-widget">
+
+    <!-- Chat Header section -->
+    <app-chat-header (close)="closeChat($event)"></app-chat-header>
+
+    <!-- Conversation section -->
+    <div class="conversation" #scrollMe>
+        <!-- Render the chat bubbles using the ChatBubbleComponent -->
+        <app-chat-bubble #messageCmp (disableUserInput)="disableInput($event)" #scrollMe></app-chat-bubble>
+    </div>
+
+    <!-- User message input section -->
+    <div class="chat-input" [class.disabled]="disableMessageInput">
+        <hr>
+        <div class="chat-input-box">
+            <textarea #chatInput class="custom-message" placeholder="Type Here...." rows="1" appAutoTextResize
+                maxlength="150" (keydown.enter)="sendMessage($event)"></textarea>
+            <button mat-fab type="button" aria-label="Send Message" (click)="sendMessage()">
+                <mat-icon>arrow_upward</mat-icon>
+            </button>
+        </div>
+    </div>
+
+</div>

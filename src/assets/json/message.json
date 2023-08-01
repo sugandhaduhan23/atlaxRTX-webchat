@@ -1,0 +1,54 @@
+{
+    "response": [{
+        "message": "Hi",
+        "type" : "text",
+        "userTyped": false,
+        "isLoading": false,
+        "suggestedReplies":[
+            "What",
+            "How"
+        ]
+    },{
+        "message": "Bye",
+        "type" : "text",
+        "userTyped": true,
+        "isLoading": false,
+        "suggestedReplies":[
+        ]
+    },
+    {
+        "message": "Hello",
+        "type" : "text",
+        "userTyped": false,
+        "isLoading": false,
+        "suggestedReplies":[
+            "What"
+        ]
+    },{
+        "message": "Say",
+        "type" : "text",
+        "userTyped": true,
+        "isLoading": false,
+        "suggestedReplies":[
+        ]
+    },{
+        "message": "Why",
+        "type" : "text",
+        "userTyped": false,
+        "isLoading": false,
+        "suggestedReplies":[
+            "What",
+            "Tell",
+            "How"
+        ]
+    },{
+        "message": "Night",
+        "type" : "text",
+        "userTyped": true,
+        "isLoading": false,
+        "suggestedReplies":[
+        ]
+    }
+    
+]
+}
