@@ -26,20 +26,6 @@ export class ConversationService {
       suggestedReplies: ['Accreditation', 'Ranking', 'Return to Main Menu'],
     },
     {
-      message: 'Thank you for contacting us. Let me know what can I help you with',
-      type: 'text',
-      userTyped: false,
-      isLoading: true,
-      suggestedReplies: [],
-    },
-    {
-      message: 'Thank you for your interest. Let me fetch the details for you',
-      type: 'text',
-      userTyped: false,
-      isLoading: true,
-      suggestedReplies: [],
-    },
-    {
       message: '',
       type: 'image',
       imageUrl: 'assets/images/sfbu.webp',
@@ -58,6 +44,13 @@ export class ConversationService {
       suggestedReplies: [],
     },
     {
+      message: 'Thank you for contacting us. Let me know what can I help you with',
+      type: 'text',
+      userTyped: false,
+      isLoading: true,
+      suggestedReplies: [],
+    },
+    {
       message: 'I would love to connect you with my team. Please fill out this short form so they can follow up with you.',
       type: 'form',
       showForm: false,
@@ -66,7 +59,47 @@ export class ConversationService {
       suggestedReplies: [],
     },
     {
+      message: 'I would love to connect you with my team. Please fill out this short form so they can follow up with you.',
+      type: 'carousel',
+      images:[
+        {
+          path: 'assets/images/sfbu.webp',
+          link: 'https://test.atlasrtx.com/next/webchat/tester?authId=C51DADFE78E14A1C94660E799AD71776&anon=1&backgroundURL=https:%2F%2Fci-static.atlasrtx.com%2Fpublic%2FAthena%2FUniversity_in_mountains.jpg',
+          btntext: 'Apply',
+          content:'Are you ready for one of the best computer science programs in California?'
+        },
+        {
+          path: 'assets/images/building.jpeg',
+          link: 'https://test.atlasrtx.com/next/webchat/tester?authId=C51DADFE78E14A1C94660E799AD71776&anon=1&backgroundURL=https:%2F%2Fci-static.atlasrtx.com%2Fpublic%2FAthena%2FUniversity_in_mountains.jpg',
+          btntext: 'Fees',
+          content:'Come to understand the interplay between business administration and IT'
+        },
+        {
+          path: 'assets/images/sfbu.webp',
+          link: 'https://test.atlasrtx.com/next/webchat/tester?authId=C51DADFE78E14A1C94660E799AD71776&anon=1&backgroundURL=https:%2F%2Fci-static.atlasrtx.com%2Fpublic%2FAthena%2FUniversity_in_mountains.jpg',
+          btntext: 'Know More',
+          content:'Are you ready for one of the best computer science programs in California?'    
+        },
+        {
+          path: 'assets/images/students.webp',
+          link: 'https://test.atlasrtx.com/next/webchat/tester?authId=C51DADFE78E14A1C94660E799AD71776&anon=1&backgroundURL=https:%2F%2Fci-static.atlasrtx.com%2Fpublic%2FAthena%2FUniversity_in_mountains.jpg',
+          btntext: 'Programs',
+          content:'Are you ready for one of the best computer science programs in California?'    
+        } 
+      ],
+      userTyped: false,
+      isLoading: false,
+      suggestedReplies: [],
+    },
+    {
       message:'Thanks you, for providing your contact information. Have a great day ahead.',
+      type: 'text',
+      userTyped: false,
+      isLoading: true,
+      suggestedReplies: [],
+    },
+    {
+      message: 'Thank you for your interest. Let me fetch the details for you',
       type: 'text',
       userTyped: false,
       isLoading: true,
@@ -87,7 +120,8 @@ export class ConversationService {
     // In the actual implementation, this method may make an HTTP request to get the chatbot's response.
 
     // Generate a random index to select a random response from the dummyMessages array
-    let index = Math.floor(Math.random() * 7);
+    let index = Math.floor(Math.random() * 9);
+    console.log(index);
 
     // Return the selected dummy message
     // The responses will not be relevant to the user message as 

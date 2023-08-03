@@ -39,14 +39,16 @@ export class ChatWidgetComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     // Scroll to the bottom after the view has been checked (when new messages are added)
     this.scrollToBottom();
   }
 
   scrollToBottom(): void {
       // Scroll to the bottom of the chat container
-      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      setTimeout(()=>{
+        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      }, 200)
   }
 
   sendMessage(event?: Event) {

@@ -1,6 +1,5 @@
 <!-- Render the chat widget component when isOpen is true and apply the myInsertRemoveTrigger animation -->
-<app-chat-widget *ngIf="isOpen" @myInsertRemoveTrigger (close)="toggleChatWidget();" role="region"
-    aria-label="Chat Widget"></app-chat-widget>
+<app-chat-widget *ngIf="isOpen" @myInsertRemoveTrigger (close)="toggleChatWidget();" role="region" aria-label="Chat Widget"></app-chat-widget>
 
 <!-- Render the chat opener when isOpen is false and apply the myInsertRemoveTrigger animation -->
 <div *ngIf="!isOpen" @myInsertRemoveTrigger appConfiguration [background]="configuration.background" class="chat-opener"

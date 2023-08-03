@@ -36,6 +36,7 @@ import { AppState } from '../store/state/state';
 })
 export class ChatBubbleComponent implements OnInit {
   @Output() disableUserInput = new EventEmitter<boolean>();
+  @Output() scroll = new EventEmitter<void>();
 
   // Initialize class properties
   currentTime = new Date();
@@ -91,6 +92,7 @@ export class ChatBubbleComponent implements OnInit {
     // show the appropriate content and elements based on the
     // type of message received
     this.messages.push({ ...message, suggestedReplies: [] });
+    this.scroll.emit();
     this.delayMessageLoading();
     if (message.suggestedReplies.length || message.type == 'form') {
       this.disableUserInput.emit(true);
@@ -115,6 +117,7 @@ export class ChatBubbleComponent implements OnInit {
       this.dispatchDateToStore(message);
       if (message.type == 'form') 
             message.showForm = true;
+      this.scroll.emit();
     }, 2000);
   }
 
@@ -133,6 +136,7 @@ export class ChatBubbleComponent implements OnInit {
     let len = this.messages.length;
     setTimeout(() => {
       this.messages[len - 1].suggestedReplies = [...suggestedReplies];
+      this.scroll.emit();
     }, 3000);
   }
 

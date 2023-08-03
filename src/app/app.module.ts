@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './user-form/user-form.component';
 import { ChatHeaderComponent } from './chat-header/chat-header.component';
 import { Message } from './models/message';
+import { WidgetCarouselComponent } from './widget-carousel/widget-carousel.component';
 
 @NgModule({
   // Declarations: Register components, directives, and pipes used in the application
@@ -41,6 +43,7 @@ import { Message } from './models/message';
     AutoTextResizeDirective,
     UserFormComponent,
     ChatHeaderComponent,
+    WidgetCarouselComponent,
   ],
   // Imports: Register the required modules from Angular and third-party libraries
   imports: [
@@ -54,6 +57,7 @@ import { Message } from './models/message';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    IvyCarouselModule,
     StoreModule.forRoot({
       configuration: configurationReducer as ActionReducer<Configuration>,
       conversation: conversationReducer as ActionReducer<Message[]>,

@@ -6,7 +6,7 @@
     <!-- Conversation section -->
     <div class="conversation" #scrollMe>
         <!-- Render the chat bubbles using the ChatBubbleComponent -->
-        <app-chat-bubble #messageCmp (disableUserInput)="disableInput($event)" #scrollMe></app-chat-bubble>
+        <app-chat-bubble #messageCmp (disableUserInput)="disableInput($event)" (scroll)="scrollToBottom()"></app-chat-bubble>
     </div>
 
     <!-- User message input section -->

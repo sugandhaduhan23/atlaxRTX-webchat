@@ -1,0 +1,54 @@
+carousel {
+  .image {
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px 10px 0 0;
+    height: inherit;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+  .carousel-text {
+    background: linear-gradient(
+      135deg,
+      rgb(42, 39, 218) 0%,
+      rgb(0, 204, 255) 100%
+    );
+    border-radius: 0 0 10px 10px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 11px;
+  }
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    button {
+      font-size: 11px;
+    }
+  }
+}
+
+::ng-deep .carousel-container {
+  .carousel-cells .carousel-cell {
+    display: flex;
+    flex-direction: column;
+    img,
+    video {
+      object-fit: cover !important;
+      border-radius: 10px;
+    }
+  }
+}
+
+::ng-deep .carousel-arrow {
+  box-shadow: unset !important;
+}
+
+::ng-deep .carousel-arrows-outside .carousel-arrow-prev {
+  left: -40px !important;
+}
+
+::ng-deep .carousel-arrows-outside .carousel-arrow-next {
+  right: -40px !important;
+}

@@ -9,7 +9,7 @@
 
         <!-- Each message is wrapped in a container with flyUp animation and dynamic classes -->
         <div class="message-wrapper" @flyUp [class.message-float-right]="msg.userTyped"
-            [ngClass]="{ 'full-Width': (msg.type=='image' || msg.type=='video') }">
+            [ngClass]="{ 'full-Width': (msg.type=='image' || msg.type=='video' || msg.type=='carousel') }">
 
             <!-- Handle text and form messages -->
             <ng-container *ngSwitchCase="'text'">
@@ -23,6 +23,10 @@
             <!-- Display image message if the message type is 'image' and it's not loading -->
             <div *ngSwitchCase="'image'" class="image-message">
                 <img [src]="msg.imageUrl" />
+            </div>
+
+            <div *ngSwitchCase="'carousel'" class="carousel-message">
+               <app-widget-carousel [images]="msg.images"></app-widget-carousel>
             </div>
 
             <!-- Handle video messages -->

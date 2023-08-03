@@ -1,3 +1,5 @@
+import { Image } from "./images";
+
 export interface Message {
   message: string;
   type: string;
@@ -9,4 +11,5 @@ export interface Message {
   thumbNailUrl?: string;
   loadVideo?: boolean;
   showForm?: boolean;
+  images?: Image[];
 }

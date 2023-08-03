@@ -1,0 +1,13 @@
+<carousel [cellWidth]="300" [height]="400" [objectFit]="'cover'" [arrowsOutside]=true [transitionDuration]="500">
+  <div *ngFor="let image of images" class="carousel-cell">
+    <div class="image">
+      <img [src]="image.path">
+    </div>
+    <div class="carousel-text">
+      {{image.content}}
+      <a target="_blank" [href]="image.link">
+        <button mat-raised-button>{{image.btntext}}</button>
+      </a>
+    </div>
+  </div>
+</carousel>
