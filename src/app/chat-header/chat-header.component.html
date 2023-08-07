@@ -1,4 +1,4 @@
-<div class="chat-header">
+<div class="chat-header" appConfiguration [background]="configuration.background">
     <div class="avatar">
         <!-- Display the avatar icon -->
         <img [src]="configuration.icon" height="35" width="35">
@@ -14,25 +14,25 @@
     <div class="chat-close">
         <div>
             <!-- Display a menu with options -->
-            <button mat-icon-button matRipple [matMenuTriggerFor]="menu" aria-label="Menu">
+            <button mat-icon-button matRipple [matMenuTriggerFor]="menu" aria-label="Menu" tabindex="0">
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
                 <!-- Option to erase chat history -->
-                <button mat-menu-item (click)="closeChat('erase')">
+                <button mat-menu-item (click)="closeChat('erase')" (keydown.enter)="closeChat('erase')">
                     <mat-icon>delete</mat-icon>
                     <span>End Conversation</span>
                 </button>
             </mat-menu>
         </div>
-        <div (click)="closeChat('close')">
+        <div (click)="closeChat('close')" (keydown.enter)="closeChat('close')">
             <!-- Button to close the chat -->
             <button mat-icon-button>
                 <mat-icon>close</mat-icon>
             </button>
         </div>
     </div>
-    <div class="online-message">
+    <div class="online-message" appConfiguration [background]="configuration.background" aria-live="polite">
         <div></div>
         <div>We are online!!!</div>
     </div>

@@ -3,7 +3,7 @@
 
 <!-- Render the chat opener when isOpen is false and apply the myInsertRemoveTrigger animation -->
 <div *ngIf="!isOpen" @myInsertRemoveTrigger appConfiguration [background]="configuration.background" class="chat-opener"
-    (click)="toggleChatWidget()" role="button" aria-label="Chat Opener">
+    (click)="toggleChatWidget()" role="button" aria-label="Chat Opener" tabindex="0" (keydown.enter)="toggleChatWidget()">
     <img [src]="configuration && configuration.icon" height="70%" width="70%" alt="Chat Icon" />
     <div>Let's chat</div>
 </div>

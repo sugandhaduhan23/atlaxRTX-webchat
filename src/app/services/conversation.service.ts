@@ -121,7 +121,6 @@ export class ConversationService {
 
     // Generate a random index to select a random response from the dummyMessages array
     let index = Math.floor(Math.random() * 9);
-    console.log(index);
 
     // Return the selected dummy message
     // The responses will not be relevant to the user message as 

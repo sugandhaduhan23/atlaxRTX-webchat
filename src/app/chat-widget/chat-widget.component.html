@@ -14,8 +14,8 @@
         <hr>
         <div class="chat-input-box">
             <textarea #chatInput class="custom-message" placeholder="Type Here...." rows="1" appAutoTextResize
-                maxlength="150" (keydown.enter)="sendMessage($event)"></textarea>
-            <button mat-fab type="button" aria-label="Send Message" (click)="sendMessage()">
+                maxlength="150"[tabindex]="disableMessageInput ? -1 : 0" (keydown.enter)="sendMessage($event)"></textarea>
+            <button mat-fab type="button" [tabindex]="disableMessageInput ? -1 : 0" aria-label="Send Message" (click)="sendMessage()" appConfiguration [background]="configuration.background">
                 <mat-icon>arrow_upward</mat-icon>
             </button>
         </div>

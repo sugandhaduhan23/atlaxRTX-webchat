@@ -30,7 +30,7 @@
     height: 10px;
     border-radius: 10px;
     margin-right: 5px;
-    background: linear-gradient(135deg, rgb(42, 39, 218) 0%, rgb(0, 204, 255) 100%);
+    // background: linear-gradient(135deg, rgb(42, 39, 218) 0%, rgb(0, 204, 255) 100%);
 }
   
 .container .dot:nth-last-child(1) {
@@ -61,7 +61,6 @@
     100% {
       transform: translate(0,15px);
       opacity:0;
-  
     }
 }
 
@@ -173,7 +172,7 @@
         justify-content: end;
        
         div{
-            background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
+            // background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
             box-shadow: 0 4px 8px -1px #a6a6a6;
             cursor: pointer;
             padding: 10px;
